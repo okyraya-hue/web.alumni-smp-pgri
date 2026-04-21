@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alumni SMP PGRI II Depok 1993</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -23,44 +21,50 @@ body{
   color:white;
 }
 
+/* WRAPPER (KUNCI SEJAJAR) */
+.wrapper{
+  max-width:1000px;
+  margin:auto;
+  padding:0 15px;
+}
+
 /* HEADER */
 header{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.15);
+}
+
+/* ISI HEADER */
+.header-inner{
+  padding:25px 0 15px;
   text-align:center;
-  padding:30px 20px;
-  header{
-  background:linear-gradient(background:#000;);
-}
 }
 
-/* LOGO (DIKECILKAN & DI DEKATKAN) */
+/* LOGO */
 .logo{
-  width:200px;
-  display:block;
-  margin:0 auto 10px; /* sebelumnya 60px → terlalu jauh */
-  filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
+  width:160px;
+  margin-bottom:10px;
 }
 
-/* JUDUL NAIK KE ATAS */
+/* JUDUL */
 header h1{
   font-family:'Poppins',sans-serif;
   font-weight:700;
-  font-size:26px;
-  margin:0; /* ini yang bikin naik */
+  font-size:24px;
 }
 
 /* TEXT */
 header p{
   font-family:'Poppins',sans-serif;
   opacity:0.9;
+  font-size:13px;
   margin:2px 0;
-  font-size:14px;
 }
 
 /* CONTAINER */
 .container{
-  max-width:1000px;
-  margin:auto;
-  padding:20px;
+  padding:15px 0 0;
 }
 
 /* CARD */
@@ -70,11 +74,6 @@ header p{
   padding:20px;
   border-radius:16px;
   margin-bottom:20px;
-}
-
-/* JUDUL */
-h2, h4{
-  font-family:'Poppins',sans-serif;
 }
 
 /* GRID */
@@ -98,8 +97,8 @@ h2, h4{
 }
 
 .member img{
-  width:100px;
-  height:100px;
+  width:90px;
+  height:90px;
   border-radius:50%;
   object-fit:cover;
   margin-bottom:10px;
@@ -117,11 +116,11 @@ textarea, input, button{
 
 textarea{height:80px;}
 
+/* BUTTON */
 button{
   background:linear-gradient(90deg,#38bdf8,#6366f1);
   color:white;
   cursor:pointer;
-  transition:0.3s;
 }
 
 button:hover{
@@ -139,39 +138,16 @@ button:hover{
 </head>
 
 <body>
-<head>
 
-<style>
-}
-
-.container{
-  padding:20px;
-}
-
-</style>
-<head>
-
-<style>
-
-body{
-  background:black;
-  color:white;
-}
-
-.container{
-  padding:20px;
-}
-
-</style>
-
-</head>
-</head>
+<div class="wrapper">
 
 <header>
-  <img src="logo.png" class="logo">
-  <h1>Alumni SMP PGRI II Depok</h1>
-  <p>Jalan Letnan Hatta Sukirman Depok II Tengah</p>
-  <p>Angkatan 1993 • Tetap Solid & Bersaudara</p>
+  <div class="header-inner">
+    <img src="logo.png" class="logo">
+    <h1>Alumni SMP PGRI II Depok</h1>
+    <p>Jalan Letnan Hatta Sukirman Depok II Tengah</p>
+    <p>Angkatan 1993 • Tetap Solid & Bersaudara</p>
+  </div>
 </header>
 
 <div class="container">
@@ -199,16 +175,16 @@ body{
 </div>
 
 </div>
+</div>
 
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 
 <script>
 const firebaseConfig = {
-  apiKey: "AIzaSyCdtPgc8EnFsLxUOOyVIWE0ItY6VihCY3A",
+  apiKey: "AIzaSy...",
   authDomain: "alumni1993-pgri.firebaseapp.com",
   databaseURL: "https://alumni1993-pgri-default-rtdb.firebaseio.com",
-  projectId: "alumni1993-pgri",
 };
 
 firebase.initializeApp(firebaseConfig);
