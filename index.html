@@ -21,7 +21,7 @@ body{
   color:white;
 }
 
-/* WRAPPER (KUNCI SEJAJAR) */
+/* WRAPPER */
 .wrapper{
   max-width:1000px;
   margin:auto;
@@ -35,31 +35,25 @@ header{
   border-bottom:1px solid rgba(255,255,255,0.15);
 }
 
-/* ISI HEADER */
 .header-inner{
   padding:25px 0 15px;
   text-align:center;
 }
 
-/* LOGO */
 .logo{
   width:160px;
   margin-bottom:10px;
 }
 
-/* JUDUL */
 header h1{
   font-family:'Poppins',sans-serif;
-  font-weight:700;
   font-size:24px;
 }
 
-/* TEXT */
 header p{
   font-family:'Poppins',sans-serif;
-  opacity:0.9;
   font-size:13px;
-  margin:2px 0;
+  opacity:0.9;
 }
 
 /* CONTAINER */
@@ -89,11 +83,6 @@ header p{
   padding:15px;
   border-radius:12px;
   text-align:center;
-  transition:0.3s;
-}
-
-.member:hover{
-  transform:translateY(-5px);
 }
 
 .member img{
@@ -111,12 +100,10 @@ textarea, input, button{
   border-radius:10px;
   border:none;
   margin-top:10px;
-  font-family:'Inter',sans-serif;
 }
 
 textarea{height:80px;}
 
-/* BUTTON */
 button{
   background:linear-gradient(90deg,#38bdf8,#6366f1);
   color:white;
@@ -133,6 +120,23 @@ button:hover{
   padding:10px;
   border-radius:10px;
   margin-top:10px;
+}
+
+/* LINK YOUTUBE */
+.yt-link{
+  display:block;
+  margin-top:10px;
+  padding:12px;
+  text-align:center;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(90deg,#ff0000,#ff4d4d);
+  transition:0.3s;
+}
+
+.yt-link:hover{
+  transform:scale(1.05);
 }
 </style>
 </head>
@@ -159,6 +163,14 @@ button:hover{
     Selamat datang di website Alumni SMP PGRI II Depok Angkatan 1993.  
     Semoga kita terus menjaga silaturahmi dan kebersamaan.
   </p>
+</div>
+
+<!-- VIDEO YOUTUBE -->
+<div class="card">
+  <h2>Video Kenangan Alumni</h2>
+  <a href="https://youtu.be/oDUNgQqBmYA?si=Ef2QEj-97o5By55r" target="_blank" class="yt-link">
+    ▶️ Tonton Video Kenangan di YouTube
+  </a>
 </div>
 
 <div class="card">
