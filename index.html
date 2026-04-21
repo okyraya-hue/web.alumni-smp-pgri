@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alumni SMP PGRI II Depok 1993</title>
 
-<!-- FONT PREMIUM -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -27,28 +26,32 @@ body{
 /* HEADER */
 header{
   text-align:center;
-  padding:40px 20px;
+  padding:30px 20px;
   background:linear-gradient(90deg,#2563eb,#38bdf8);
 }
 
-/* LOGO */
+/* LOGO (DIKECILKAN & DI DEKATKAN) */
 .logo{
-  width:200px;
+  width:120px;
   display:block;
-  margin:0 auto 60px;
+  margin:0 auto 10px; /* sebelumnya 60px → terlalu jauh */
   filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
 }
 
-/* FONT HEADER */
+/* JUDUL NAIK KE ATAS */
 header h1{
   font-family:'Poppins',sans-serif;
   font-weight:700;
   font-size:26px;
+  margin:0; /* ini yang bikin naik */
 }
 
+/* TEXT */
 header p{
   font-family:'Poppins',sans-serif;
   opacity:0.9;
+  margin:2px 0;
+  font-size:14px;
 }
 
 /* CONTAINER */
@@ -132,11 +135,13 @@ button:hover{
 }
 </style>
 </head>
+
 <body>
+
 <header>
   <img src="logo.png" class="logo">
   <h1>Alumni SMP PGRI II Depok</h1>
-  <p>Jalan.Letnan Hatta Sukirman Depok II Tengah
+  <p>Jalan Letnan Hatta Sukirman Depok II Tengah</p>
   <p>Angkatan 1993 • Tetap Solid & Bersaudara</p>
 </header>
 
