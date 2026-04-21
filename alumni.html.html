@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alumni SMP PGRI II Depok 1993</title>
+
+<style>
+body {
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
+}
+
+header {
+  text-align:center;
+  padding:40px 20px;
+  background:linear-gradient(90deg,#2563eb,#38bdf8);
+}
+
+.logo {
+ width:180px;
+  display:block;
+  margin:0 auto 15px;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.8));
+}
+
+.container {
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
+
+.card {
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:16px;
+  margin-bottom:20px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+
+.member {
+  background:rgba(255,255,255,0.1);
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+}
+
+.member img {
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:10px;
+}
+
+textarea, input, button {
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  margin-top:10px;
+}
+
+textarea { height:80px; }
+
+button {
+  background:#38bdf8;
+  color:white;
+  cursor:pointer;
+}
+
+button:hover {
+  background:#0ea5e9;
+}
+
+.comment {
+  background:rgba(255,255,255,0.1);
+  padding:10px;
+  border-radius:10px;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="./img.logo" class="logo">
+  <h1>Alumni SMP PGRI II Depok</h1>
+  <p>Angkatan 1993 • Tetap Solid & Bersaudara</p>
+</header>
+
+<div class="container">
+
+<!-- SAMBUTAN -->
+<div class="card">
+  <h2>Sambutan</h2>
+  <p>
+    Assalamualaikum Wr. Wb.<br><br>
+    Selamat datang di website Alumni SMP PGRI II Depok Angkatan 1993.  
+    Semoga melalui website ini kita dapat terus menjalin silaturahmi,  
+    berbagi kabar, serta mempererat persaudaraan yang telah terjalin sejak sekolah.  
+    Mari kita jaga kebersamaan ini selamanya.
+  </p>
+</div>
+
+<!-- DATA ALUMNI -->
+<div class="card">
+  <h2>Alumni SMP PGRI II Depok Angkatan 1993</h2>
+  <div class="grid" id="listAlumni"></div>
+</div>
+
+<!-- KOMENTAR -->
+<div class="card">
+  <h2>Obrolan & Komentar</h2>
+
+  <input id="namaKomentar" placeholder="Nama">
+  <textarea id="isiKomentar" placeholder="Tulis komentar..."></textarea>
+  <button onclick="kirimKomentar()">Kirim</button>
+
+  <div id="listKomentar"></div>
+</div>
+
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCdtPgc8EnFsLxUOOyVIWE0ItY6VihCY3A",
+  authDomain: "alumni1993-pgri.firebaseapp.com",
+  databaseURL: "https://alumni1993-pgri-default-rtdb.firebaseio.com",
+  projectId: "alumni1993-pgri",
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// =================== ALUMNI ===================
+function tampilkanAlumni(){
+  db.ref('alumni').on('value', (snapshot)=>{
+    const data = snapshot.val();
+    const list = document.getElementById('listAlumni');
+    list.innerHTML='';
+
+    if(data){
+      for(let id in data){
+        list.innerHTML += `
+        <div class="member">
+          <img src="${data[id].foto || 'https://via.placeholder.com/80'}">
+          <h4>${data[id].nama}</h4>
+          <p>${data[id].kota}</p>
+        </div>`;
+      }
+    }
+  });
+}
+
+// =================== KOMENTAR ===================
+function kirimKomentar(){
+  const nama = document.getElementById('namaKomentar').value;
+  const isi = document.getElementById('isiKomentar').value;
+
+  if(!nama || !isi) return alert('Isi semua kolom');
+
+  db.ref('komentar').push({
+    nama: nama,
+    isi: isi,
+    waktu: new Date().toLocaleString()
+  });
+
+  document.getElementById('namaKomentar').value='';
+  document.getElementById('isiKomentar').value='';
+}
+
+function tampilkanKomentar(){
+  db.ref('komentar').on('value', (snapshot)=>{
+    const data = snapshot.val();
+    const list = document.getElementById('listKomentar');
+    list.innerHTML='';
+
+    if(data){
+      for(let id in data){
+        list.innerHTML += `
+        <div class="comment">
+          <b>${data[id].nama}</b><br>
+          <small>${data[id].waktu}</small>
+          <p>${data[id].isi}</p>
+        </div>`;
+      }
+    }
+  });
+}
+
+// Jalankan
+tampilkanAlumni();
+tampilkanKomentar();
+</script>
+
+</body>
+</html>
