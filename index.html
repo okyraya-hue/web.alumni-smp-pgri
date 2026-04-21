@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alumni SMP PGRI II Depok 1993</title>
 
-<!-- FONT (PASTI KELOAD) -->
+<!-- FONT PREMIUM -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -27,31 +27,28 @@ body{
 /* HEADER */
 header{
   text-align:center;
-  padding:45px 20px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,0.1);
+  padding:40px 20px;
+  background:linear-gradient(90deg,#2563eb,#38bdf8);
 }
 
 /* LOGO */
 .logo{
-  width:85px;
-  margin-bottom:12px;
-  filter:drop-shadow(0 5px 12px rgba(0,0,0,0.5));
+  width:120px;
+  display:block;
+  margin:0 auto 15px;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
 }
 
-/* FONT HEADER (FIX TOTAL) */
+/* FONT HEADER */
 header h1{
   font-family:'Poppins',sans-serif;
   font-weight:700;
   font-size:26px;
-  letter-spacing:0.5px;
 }
 
 header p{
   font-family:'Poppins',sans-serif;
-  font-weight:400;
-  opacity:0.85;
+  opacity:0.9;
 }
 
 /* CONTAINER */
@@ -68,19 +65,17 @@ header p{
   padding:20px;
   border-radius:16px;
   margin-bottom:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* JUDUL CARD */
-.card h2{
+/* JUDUL */
+h2, h4{
   font-family:'Poppins',sans-serif;
-  margin-bottom:10px;
 }
 
 /* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:15px;
 }
 
@@ -94,50 +89,46 @@ header p{
 }
 
 .member:hover{
-  transform:translateY(-6px);
+  transform:translateY(-5px);
 }
 
 .member img{
-  width:70px;
-  height:70px;
+  width:80px;
+  height:80px;
   border-radius:50%;
   object-fit:cover;
   margin-bottom:10px;
 }
 
-/* GALERI */
-.gallery img{
-  width:100%;
-  border-radius:10px;
-}
-
-/* INPUT */
-input,button{
+/* FORM */
+textarea, input, button{
   width:100%;
   padding:10px;
-  margin-top:10px;
   border-radius:10px;
   border:none;
+  margin-top:10px;
   font-family:'Inter',sans-serif;
 }
 
-input{
-  background:#f1f5f9;
-  color:#000;
-}
+textarea{height:80px;}
 
-/* BUTTON */
 button{
   background:linear-gradient(90deg,#38bdf8,#6366f1);
   color:white;
   cursor:pointer;
   transition:0.3s;
-  font-weight:500;
 }
 
 button:hover{
-  transform:scale(1.04);
-  opacity:0.9;
+  transform:scale(1.03);
+}
+
+/* KOMENTAR */
+.comment{
+  background:rgba(255,255,255,0.1);
+  padding:10px;
+  border-radius:10px;
+  margin-top:10px;
 }
 </style>
 </head>
@@ -147,29 +138,31 @@ button:hover{
 <header>
   <img src="logo.png" class="logo">
   <h1>Alumni SMP PGRI II Depok</h1>
-  <p>Angkatan 1993</p>
+  <p>Angkatan 1993 • Tetap Solid & Bersaudara</p>
 </header>
 
 <div class="container">
 
 <div class="card">
-<h2>Tambah Alumni</h2>
-<input id="nama" placeholder="Nama">
-<input id="kota" placeholder="Kota">
-<input type="file" id="foto">
-<button onclick="tambahAlumni()">Simpan</button>
+  <h2>Sambutan</h2>
+  <p>
+    Assalamualaikum Wr. Wb.<br><br>
+    Selamat datang di website Alumni SMP PGRI II Depok Angkatan 1993.  
+    Semoga kita terus menjaga silaturahmi dan kebersamaan.
+  </p>
 </div>
 
 <div class="card">
-<h2>Daftar Alumni</h2>
-<div class="grid" id="listAlumni"></div>
+  <h2>Data Alumni</h2>
+  <div class="grid" id="listAlumni"></div>
 </div>
 
 <div class="card">
-<h2>Galeri Reuni</h2>
-<input type="file" id="fotoGaleri" multiple>
-<button onclick="tambahGaleri()">Upload</button>
-<div class="grid gallery" id="galeri"></div>
+  <h2>Obrolan & Komentar</h2>
+  <input id="namaKomentar" placeholder="Nama">
+  <textarea id="isiKomentar" placeholder="Tulis komentar..."></textarea>
+  <button onclick="kirimKomentar()">Kirim</button>
+  <div id="listKomentar"></div>
 </div>
 
 </div>
@@ -179,37 +172,16 @@ button:hover{
 
 <script>
 const firebaseConfig = {
-  apiKey: "AIzaSy...",
+  apiKey: "AIzaSyCdtPgc8EnFsLxUOOyVIWE0ItY6VihCY3A",
   authDomain: "alumni1993-pgri.firebaseapp.com",
   databaseURL: "https://alumni1993-pgri-default-rtdb.firebaseio.com",
+  projectId: "alumni1993-pgri",
 };
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
-function tambahAlumni(){
-  const nama = document.getElementById('nama').value;
-  const kota = document.getElementById('kota').value;
-  const file = document.getElementById('foto').files[0];
-
-  if(!nama) return alert('Isi nama');
-
-  if(file){
-    const reader = new FileReader();
-    reader.onload = function(e){
-      db.ref('alumni').push({nama,kota,foto:e.target.result});
-    }
-    reader.readAsDataURL(file);
-  } else {
-    db.ref('alumni').push({nama,kota,foto:''});
-  }
-
-  document.getElementById('nama').value='';
-  document.getElementById('kota').value='';
-  document.getElementById('foto').value='';
-}
-
-function tampilkan(){
+function tampilkanAlumni(){
   db.ref('alumni').on('value', (snapshot)=>{
     const data = snapshot.val();
     const list = document.getElementById('listAlumni');
@@ -228,20 +200,43 @@ function tampilkan(){
   });
 }
 
-function tambahGaleri(){
-  const files = document.getElementById('fotoGaleri').files;
-  for(let i=0;i<files.length;i++){
-    const reader = new FileReader();
-    reader.onload = function(e){
-      const img = document.createElement('img');
-      img.src = e.target.result;
-      document.getElementById('galeri').appendChild(img);
-    }
-    reader.readAsDataURL(files[i]);
-  }
+function kirimKomentar(){
+  const nama = document.getElementById('namaKomentar').value;
+  const isi = document.getElementById('isiKomentar').value;
+
+  if(!nama || !isi) return alert('Isi semua kolom');
+
+  db.ref('komentar').push({
+    nama: nama,
+    isi: isi,
+    waktu: new Date().toLocaleString()
+  });
+
+  document.getElementById('namaKomentar').value='';
+  document.getElementById('isiKomentar').value='';
 }
 
-tampilkan();
+function tampilkanKomentar(){
+  db.ref('komentar').on('value', (snapshot)=>{
+    const data = snapshot.val();
+    const list = document.getElementById('listKomentar');
+    list.innerHTML='';
+
+    if(data){
+      for(let id in data){
+        list.innerHTML += `
+        <div class="comment">
+          <b>${data[id].nama}</b><br>
+          <small>${data[id].waktu}</small>
+          <p>${data[id].isi}</p>
+        </div>`;
+      }
+    }
+  });
+}
+
+tampilkanAlumni();
+tampilkanKomentar();
 </script>
 
 </body>
