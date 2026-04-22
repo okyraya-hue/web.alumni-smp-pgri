@@ -5,206 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alumni SMP PGRI II Depok 1993</title>
 
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-/* BODY */
-body{
-  font-family:'Inter',sans-serif;
-  background:linear-gradient(135deg,#0f172a,#1e293b);
-  color:white;
-}
-
-/* WRAPPER */
-.wrapper{
-  max-width:1000px;
-  margin:auto;
-  padding:0 15px;
-}
-
-/* HEADER */
-header{
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,0.15);
-}
-
-.header-inner{
-  padding:25px 0 15px;
-  text-align:center;
-}
-
-.logo{
-  width:160px;
-  margin-bottom:10px;
-}
-
-/* TEXT */
-header h1{
-  font-family:'Poppins',sans-serif;
-  font-size:24px;
-}
-
-header p{
-  font-family:'Poppins',sans-serif;
-  font-size:13px;
-  opacity:0.9;
-}
-
-/* CONTAINER */
-.container{
-  padding:15px 0 0;
-}
-
-/* CARD */
-.card{
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
-  padding:20px;
-  border-radius:16px;
-  margin-bottom:20px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
-}
-
-/* MEMBER */
-.member{
-  background:rgba(255,255,255,0.1);
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
-}
-
-.member img{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:10px;
-}
-
-/* FORM */
-textarea, input, button{
-  width:100%;
-  padding:10px;
-  border-radius:10px;
-  border:none;
-  margin-top:10px;
-}
-
-textarea{height:80px;}
-
-button{
-  background:linear-gradient(90deg,#38bdf8,#6366f1);
-  color:white;
-  cursor:pointer;
-}
-
-button:hover{
-  transform:scale(1.03);
-}
-
-/* KOMENTAR */
-.comment{
-  background:rgba(255,255,255,0.1);
-  padding:10px;
-  border-radius:10px;
-  margin-top:10px;
-}
-
-/* YOUTUBE LINK */
-.yt-link{
-  display:block;
-  margin-top:10px;
-  padding:12px;
-  text-align:center;
-  border-radius:10px;
-  text-decoration:none;
-  color:white;
-  background:linear-gradient(90deg,#ff0000,#ff4d4d);
-  transition:0.3s;
-}
-
-.yt-link:hover{
-  transform:scale(1.05);
-}
-
-/* FOOTER */
-footer{
-  margin-top:30px;
-  padding:15px;
-  text-align:center;
-  font-size:13px;
-  color:rgba(255,255,255,0.7);
-  border-top:1px solid rgba(255,255,255,0.1);
-  background:rgba(255,255,255,0.03);
+body {
+  font-family: 'Inter', sans-serif;
 }
 </style>
 </head>
 
-<body>
+<body class="bg-gradient-to-br from-slate-900 to-slate-800 text-white">
 
-<div class="wrapper">
+<div class="max-w-5xl mx-auto px-4">
 
-<header>
-  <div class="header-inner">
-    <img src="logo.png" class="logo">
-    <h1>Alumni SMP PGRI II Depok</h1>
-    <p>Jalan Letnan Hatta Sukirman Depok II Tengah</p>
-    <p>Angkatan 1993 • Tetap Solid & Bersaudara</p>
+<!-- HEADER -->
+<header class="bg-white/10 backdrop-blur-lg border-b border-white/20 mt-3 rounded-2xl">
+  <div class="text-center py-6">
+    <img src="logo.png" class="w-40 mx-auto mb-3">
+    <h1 class="text-2xl font-semibold font-[Poppins]">Alumni SMP PGRI II Depok</h1>
+    <p class="text-sm opacity-80 font-[Poppins]">Jalan Letnan Hatta Sukirman Depok II Tengah</p>
+    <p class="text-sm opacity-80 font-[Poppins]">Angkatan 1993 • Tetap Solid & Bersaudara</p>
   </div>
 </header>
 
-<div class="container">
+<!-- CONTENT -->
+<div class="mt-4 space-y-4">
 
 <!-- SAMBUTAN -->
-<div class="card">
-  <h2>Sambutan</h2>
-  <p>
+<div class="bg-white/10 backdrop-blur-md p-5 rounded-2xl shadow">
+  <h2 class="text-lg font-semibold mb-2">Sambutan</h2>
+  <p class="text-sm leading-relaxed">
     Assalamualaikum Wr. Wb.<br><br>
     Selamat datang di website Alumni SMP PGRI II Depok Angkatan 1993.  
     Semoga kita terus menjaga silaturahmi dan kebersamaan.
   </p>
 </div>
 
-<!-- VIDEO YOUTUBE -->
-<div class="card">
-  <h2>Video Kenangan Alumni</h2>
-  <a href="https://youtu.be/oDUNgQqBmYA?si=Ef2QEj-97o5By55r" target="_blank" class="yt-link">
+<!-- YOUTUBE -->
+<div class="bg-white/10 backdrop-blur-md p-5 rounded-2xl shadow">
+  <h2 class="text-lg font-semibold mb-3">Video Kenangan Alumni</h2>
+  <a href="https://https://youtu.be/1B57pioDtFQ" target="_blank"
+    class="block text-center py-3 rounded-xl bg-red-500 hover:bg-red-600 transition transform hover:scale-105">
     ▶️ Tonton Video Kenangan di YouTube
   </a>
 </div>
 
 <!-- DATA ALUMNI -->
-<div class="card">
-  <h2>Data Alumni</h2>
-  <div class="grid" id="listAlumni"></div>
+<div class="bg-white/10 backdrop-blur-md p-5 rounded-2xl shadow">
+  <h2 class="text-lg font-semibold mb-3">Data Alumni</h2>
+  <div id="listAlumni" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
 </div>
 
 <!-- KOMENTAR -->
-<div class="card">
-  <h2>Obrolan & Komentar</h2>
-  <input id="namaKomentar" placeholder="Nama">
-  <textarea id="isiKomentar" placeholder="Tulis komentar..."></textarea>
-  <button onclick="kirimKomentar()">Kirim</button>
-  <div id="listKomentar"></div>
+<div class="bg-white/10 backdrop-blur-md p-5 rounded-2xl shadow">
+  <h2 class="text-lg font-semibold mb-3">Obrolan & Komentar</h2>
+
+  <input id="namaKomentar" placeholder="Nama"
+    class="w-full p-3 mb-2 rounded-xl bg-white/20 border border-white/20 placeholder-white/70">
+
+  <textarea id="isiKomentar" placeholder="Tulis komentar..."
+    class="w-full p-3 mb-2 rounded-xl bg-white/20 border border-white/20 placeholder-white/70"></textarea>
+
+  <button onclick="kirimKomentar()"
+    class="w-full py-3 rounded-xl bg-gradient-to-r from-sky-400 to-indigo-500 hover:scale-105 transition">
+    Kirim
+  </button>
+
+  <div id="listKomentar" class="mt-3 space-y-2"></div>
 </div>
 
 </div>
 
 <!-- FOOTER -->
-<footer>
+<footer class="text-center text-sm opacity-70 mt-6 pb-4 border-t border-white/10 pt-4">
   © 2026 OkyRaya. All Rights Reserved
 </footer>
 
@@ -233,10 +110,11 @@ function tampilkanAlumni(){
     if(data){
       for(let id in data){
         list.innerHTML += `
-        <div class="member">
-          <img src="${data[id].foto || 'https://via.placeholder.com/80'}">
-          <h4>${data[id].nama}</h4>
-          <p>${data[id].kota}</p>
+        <div class="bg-white/10 p-3 rounded-xl text-center">
+          <img src="${data[id].foto || 'https://via.placeholder.com/80'}"
+            class="w-20 h-20 mx-auto rounded-full object-cover mb-2">
+          <h4 class="font-semibold">${data[id].nama}</h4>
+          <p class="text-xs opacity-80">${data[id].kota}</p>
         </div>`;
       }
     }
@@ -268,10 +146,10 @@ function tampilkanKomentar(){
     if(data){
       for(let id in data){
         list.innerHTML += `
-        <div class="comment">
+        <div class="bg-white/10 p-3 rounded-xl">
           <b>${data[id].nama}</b><br>
-          <small>${data[id].waktu}</small>
-          <p>${data[id].isi}</p>
+          <small class="opacity-70">${data[id].waktu}</small>
+          <p class="mt-1">${data[id].isi}</p>
         </div>`;
       }
     }
